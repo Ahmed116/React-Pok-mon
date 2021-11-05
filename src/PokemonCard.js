@@ -1,56 +1,37 @@
 import React from 'react'
-import { Component } from 'react'
 
-class PokemonCard extends Component {
-  state = {pokemon:[]}
+const PokemonCard = (props)=> {
 
-   componentDidMount = async() =>{
-    
-      const url = `https://pokeapi.co/api/v2/pokemon?limit=150`;
-      const res = await fetch(url);
-      const data = await res.json();
-      
-      const pokemon = data.results.map((data, index) => ({
-        name: data.name,
-        id: index + 1,
-        image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index +
-          1}.png`,
-      }));
-      this.setState({ pokemon: pokemon  });  
-  }
  
 
-
-
-  render(){
-    console.log(this.state.pokemon)
-
-  return (
-    <div className='main ui card'>
-      <div className='ui slide masked reveal image'>
-        <img src={this.state.image} className="visible content"/>
-        {/* <img src="/images/avatar/large/elliot.jpg" className="hidden content"/> */}
-      </div>
-
-      {/* 
-      <div className='content'>
-        <p className='header'>Team Fu &amp; Hess</p>
-        <div className='meta'>
-          <span className='date'>Created in Sep 2014</span>
+    return(
+      <div className="ui link cards">
+      <div className="card">
+        <div className="image">
+          <img src={props.pokemon.image}/>
+          <h3>{props.pokemon.name}</h3>
+        </div>
+        <div className="content">
+          <div className="header">{props.pokemon.name}</div>
+          <div className="meta">
+            <a>Friends</a>
+          </div>
+          <div className="description">
+            Matthew is an interior designer living in New York.
+          </div>
+        </div>
+        <div className="extra content">
+          <span className="right floated">
+            Joined in 2013
+          </span>
+          <span>
+            <i className="user icon"></i>
+            75 Friends
+          </span>
         </div>
       </div>
-      <div className='extra content'>
-        <p>
-          <i className='users icon'></i>2 Members
-        </p>
-      </div>
-      <div className='ui toggle checkbox' style={{ paddingBottom: '10px' }}>
-        <input type='checkbox' name='public' />
-        <label>Cupture</label>
-      </div> */}
-    </div>
-  )
-}
+</div>
+    )
 }
 
 export default PokemonCard
