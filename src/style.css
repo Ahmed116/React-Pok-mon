@@ -5,6 +5,13 @@
   margin-top: 5px;
 }
 
+.mainCard{
+  display: flex;
+  flex-wrap:wrap;
+  margin: 5px;
+  padding: 0;
+}
+
 .search-input{
     width: 50%;
 }
@@ -12,3 +19,4 @@
 .ui toggle checkbox{
     margin-bottom: 10px;
 }
+
